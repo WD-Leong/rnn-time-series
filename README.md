@@ -2,7 +2,7 @@
 
 This repository explores the use of a Recurrent Neural Network (RNN) to model time series data. Time series data has its distinct characteristics which includes seasonality and trends. We will simulate a cosine function with a linear trend and model it using a one layer RNN. 
 
-Note that the vanilla RNN is unable to model this simple function with a clear bias in its predictions. To mitigate this, a separate estimate of the intercept needs to be performed and the input sequence to the RNN needs to be modified accordingly to allow the RNN to model this function properly.
+Note that the vanilla RNN is unable to model this simple function with a clear bias in its predictions. To mitigate this, a separate estimate of the intercept needs to be performed and the input sequence to the RNN needs to be modified accordingly to allow the RNN to model this function properly. The corresponding prediction is then given by `yhat_pred + c_hat`.
 
 ## Effect of Intercept Estimation
 Without the intercept estimation, the vanilla RNN will show a residual bias in its prediction:
@@ -19,4 +19,4 @@ The notebook to reference is `rnn_trial_tsa.ipynb`.
 
 ## Miscellaneous Information
 
-The RNN module `tf_ver2_rnn_tsa_scan.py` uses Tensorflow's `tf.scan` function to run the RNN. It will convert the base RNN layer into a Tensorflow graph via the `tf.function` wrapper to improve its runtime. The use of the `tf.scan` functionality allows the RNN to be able to balance between modeling long sequentual data with a relatively longer runtime at a modest memory footprint. 
+The RNN module `tf_ver2_rnn_tsa_scan.py` uses Tensorflow's `tf.scan` function to run the RNN. It will convert the base RNN layer into a Tensorflow graph via the `tf.function` wrapper to improve its runtime. The use of the `tf.scan` functionality allows the RNN to be able to balance between modeling long sequentual data with a relatively longer runtime at a modest memory footprint. For this RNN, the hidden state uses a ReLU activation function instead of the hyperbolic tangent in the original RNN.
