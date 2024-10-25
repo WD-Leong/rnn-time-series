@@ -4,13 +4,13 @@ This repository explores the use of a Recurrent Neural Network (RNN) to model ti
 
 Without the intercept estimation, the vanilla RNN will show a residual bias in its prediction:
 
-![screenshot_1](vanilla_rnn.png)
+![screenshot_1](rnn_without_intercept_estimate.png)
 
 The notebook to reference is `rnn_trial_v0.ipynb`.
 
 However, by incorporating the estimate of the intercept, the RNN is able to predict the trend and seasonality properly:
 
-![screenshot_2](rnn_with_intercept.png)
+![screenshot_2](rnn_with_intercept_estimate.png)
 
 The notebook to reference is `rnn_trial_tsa.ipynb`.
 
